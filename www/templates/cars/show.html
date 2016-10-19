@@ -1,0 +1,31 @@
+<ion-view>
+  <ion-nav-title>Carro escolhido</ion-nav-title>
+  <ion-content>
+    <div class="card">
+      <div class="item item-divider">
+        Parabéns pela escolha
+      </div>
+      <div class="item item-text-wrap">
+        {{car.nome}}
+
+        <ul class="list">
+          <li class="item item-toggle" ng-repeat="accessorie in accessories">
+             {{accessorie.name}} - R{{accessorie.price | currency}}
+             <label class="toggle toggle-assertive">
+               <input type="checkbox" ng-model="isChecked" ng-click="checkAccessorie(accessorie.price, isChecked)">
+               <div class="track">
+                 <div class="handle"></div>
+               </div>
+             </label>
+          </li>
+        </ul>
+      </div>
+      <div class="item item-divider">
+        R{{order.total | currency}}
+      </div>
+    </div>
+    <a class="button button-positive button-full" href="#/order/{{order}}">
+      Fazer pedido
+    </a>
+  </ion-content>
+</ion-view>
